@@ -4,7 +4,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:annotation-config />
+    <context:annotation-config/>
     <context:component-scan base-package="pl.com.ugeonk"/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -13,6 +13,11 @@
         <property name="username" value="${dataSource.username}"/>
         <property name="password" value="${dataSource.password}"/>
     </bean>
+
+    <!--<jdbc:initialize-database data-source=“dataSource”>-->
+    <!--<jdbc:script location=“classpath:schema.sql” />-->
+    <!--<jdbc:script location=“classpath:test-data.sql” />-->
+    <!--</jdbc:initialize-database>-->
 
     <context:property-placeholder location="classpath:application.properties"/>
 
